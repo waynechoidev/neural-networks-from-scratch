@@ -15,10 +15,12 @@ def predict(i):
 
 # train the network
 for epoch in range(epochs):
+    # feed Forward
     pred = [predict(i) for i in inputs]
+
+    # cost
     cost = sum([(p-t) ** 2 for p, t in zip(pred, targets)]) / len(targets)
-    if epoch == 1 or epoch == epochs-1:
-        print(f"Weight: {w:.2f}, Bias: {b:.2f}, Cost: {cost:.2f}")
+    print(f"Weight: {w:.2f}, Bias: {b:.2f}, Cost: {cost:.2f}")
 
     # back propagation
     errors_d = [2 * (p-t) for p, t in zip(pred, targets)]

@@ -27,8 +27,11 @@ def log_loss(act, target):
 
 # train the network
 for epoch in range(epochs):
+    # feed Forward
     pred = [predict(inp) for inp in inputs]
     act = [activate(p) for p in pred]
+
+    # cost
     cost = sum([log_loss(a, t) for a, t in zip(act, targets)]) / len(act)
     print(f"Epoch: {epoch}, Cost: {cost:.2f}")
 
